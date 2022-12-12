@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JS Interview Questions</title>
+</head>
+<body>
+ <h1><a href="Home.html">Home</a></h1><h1>JS</h1>
+ <ol>
+    <li>What is difference between "=", "==" and "===" ?</li>
+    <p><b>Ans. "=" is used for assigning values to a variable, "==" is used for comparing two variables, but it ignores the datatype of variable whereas "===" is check the datatypes of variables.</b></p>
+
+    <li>How many ways to add JS file?</li>
+    <p><b>Ans. There are typically two ways to add JavaScript to a web page: Embedding the JavaScript code between a pair of script tag. Creating an external JavaScript file with the . js extension and then load it within the page through the src attribute of the script tag.</b></p>
+
+    <li><b>How many types of JavaScript popup boxes?</b></li>
+    <p>Ans. JavaScript has three kind of popup boxes: Alert box, Confirm box, and Prompt box.
+        <ul>
+            <li>An alert box is often used if you want to make sure information comes through to the user.
+                When an alert box pops up, the user will have to click "OK" to proceed.</li>
+                <pre class="pre">
+                    
+                    alert("Hello");
+                </pre>
+            <li>A prompt box is often used if you want the user to input a value before entering a page.
+                When a prompt box pops up, the user will have to click either "OK" or "Cancel" to proceed after entering an input value.</li>
+                <pre class="pre">
+
+                    prompt("Enter something befor entering the page.");
+                    or
+
+                    let person = prompt("Please enter your name", "Harry Potter");
+                    let text;
+                    if (person == null || person == "") {
+                    text = "User cancelled the prompt.";
+                    } else {
+                    text = "Hello " + person + "! How are you today?";
+                    }
+
+                </pre>
+            <li>
+                A confirm box is often used if you want the user to verify or accept something.
+                When a confirm box pops up, the user will have to click either "OK" or "Cancel" to proceed.
+                If the user clicks "OK", the box returns true. If the user clicks "Cancel", the box returns false.
+                <pre class="pre">
+
+                    if(confirm("Press a button"))
+                    {
+                        msg = "You pressed ok..!!";
+                    }
+                    else
+                    {
+                        msg = "You pressed Cancel..!!";
+                    }
+                </pre>
+            </li>
+        </ul>
+    </p>
+
+    <li><b>How can we submit a form using JS?</b></li>
+    <p>Ans. When we click on the link, the function submitForm() will get executed. This function will get the element object using DOM getElementById() method by passing the form id to this method, then the form will be submitted by using submit() method.</p>
+
+    <li><b>Debouncing in JS.</b></li>
+    <p>Ans. Debouncing in JavaScript is a practice used to improve browser performance. There might be some functionality in a web page which requires time-consuming computations. If such a method is invoked frequently, it might greatly affect the performance of the browser, as JavaScript is a single threaded language. Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, that it stalls the performance of the web page. In other words, it limits the rate at which a function gets invoked.</p>
+    
+    <pre class="pre">
+
+        <input type="text" id="search" onchange="BetterFunction()">
+        
+            let counter = 0;
+            function getData()
+                {
+                    console.log("Fetching Data" + counter++);
+                }
+
+            function myDebounce(call, d)
+            {
+                let timer;
+                return function(...args)
+                {
+                    if(timer)
+                    clearTimeout(timer);
+                    timer = setTimeout(()=>
+                    {
+                        call();
+                    },d);
+                }
+            }    
+
+            const BetterFunction = myDebounce(getData, 2000);                 
+    </pre>
+  
+
+    <li><b>What is Throttling in JavaScript?</b></li>
+    <p>Ans. Throttling implies limiting the number of times a function gets called in a certain time period. It will prohibit a function from executing if we have invoked it “recently.” Throttling also guarantees that a function runs at a consistent rate.</p>
+
+    <pre class="pre">
+
+        <button id="myId" onclick="newFun()">Hello</button>
+
+        const myThrottle = (fn, d) =>
+        {
+            return function(...args)
+            {
+                document.getElementById("myId").disabled = true;
+                setTimeout(()=>
+                {
+                    fn();
+                }, d);
+            }
+        }
+        const newFun = myThrottle(()=>
+        {
+            document.getElementById("myId").disabled = false;
+            console.log("User Clicked..!!");
+        }, 2000)
+
+    </pre>
+    
+    <li><b>Difference between throttling and Debouncing.</b></li>
+    <p>Ans. It's simple. They do the exact same thing (rate limiting) except while throttle is being called it'll fire your function periodically, while debounce only fires once at the end. Example: If you're scrolling, throttle will slowly call your function while you scroll (every X milliseconds).</p>
+
+</ol>   
+
+</body>
+</html>

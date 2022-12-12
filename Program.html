@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Programming Interview Questions</title>
+</head>
+<!-- <style>
+    .pre
+    {
+        background-color: black;
+        color: white;
+        width: 60%;        
+    }
+</style> -->
+<body>
+    <h1><a href="Home.html">Home</a></h1><h1>Programming Questions</h1>
+    <ol>
+        <li>Write a program to check whether the number is Prime or not.</li>
+        <pre class="pre">
+
+            const number = parseInt(prompt("Enter a positive number: "));
+            let isPrime = true; 
+                      
+            if (number === 1) {
+                console.log("1 is neither prime nor composite number.");
+            }
+
+            else if (number > 1) {
+                for (let i = 2; i < number; i++) {
+                    if (number % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    console.log(`${number} is a prime number`);
+                } else {
+                    console.log(`${number} is a not prime number`);
+                }
+            } 
+
+            else {
+                console.log("${number} is not a prime number.");
+            }
+        </pre>
+
+        <li>Write a program to print Fibbonacci Series.</li>
+        <pre class="pre">
+
+            function fibbonacciGenerator(n)
+                {
+                    var output = [];
+                    if (n==1)
+                    {
+                        output = [0];
+                    }
+                    else if  (n==2)
+                    {
+                        output = [0,1];
+                    }
+                    else
+                    {
+                        output = [0,1];
+                    for (let i = 2; i < n; i++ )
+                        {
+                            output.push(output[output.length-2] + output[output.length-1]);
+                        }
+                    }        
+                return output;
+                    }
+                output= fibbonacciGenerator(9);
+                console.log(output);
+        </pre>
+
+        <li>Write a program to Print integers one-to-N(100), but print “Fizz” if an integer is divisible by three, “Buzz” if an integer is divisible by five, and “FizzBuzz” if an integer is divisible by both three and five.</li>
+        
+        <pre class="pre">
+
+            var output = [];
+                var count = 1;
+                function fizzBuzz() {
+
+                while (count<=100) {
+                    if (count%3===0 && count%5===0) {
+                        output.push("FizzBuzz");
+                    }
+                    else if(count%3===0)
+                    {
+                        output.push("Fizz");
+                    }
+                    else if(count%5===0)
+                    {
+                        output.push("Buzz");
+                    }
+                    else
+                    {
+                    output.push(count);    
+                    }
+                    count++;
+                } 
+                    console.log(output);
+                }
+                fizzBuzz();
+        </pre>
+
+        <li>Write a program to check string is Palindrome or not.</li>
+
+        <pre class="pre">
+
+            var string = prompt("Please enter a string");
+            var len = string.length;
+            var msg = "String is Palindrome.";
+            for (let i = 0; i < len/2; i++) 
+            {
+                if(string[i]!= string[len-1-i])
+                {
+                    msg = "String is not a Palindrome.";
+                }
+            }
+            console.log("${string} ${msg}");                                                
+        </pre>
+        
+    </ol>
+</body>
+</html>
