@@ -146,6 +146,63 @@
         createData({name:"AS", occupation:"SDE3"}, getDatas);
     </pre>
 
+    <li><b>What is JS Promises?</b></li>
+    <p>Ans. A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved (e.g a network error occured). A promise may be in one of 3 possible states: fulfilled, rejected or pending.
+        A promise acts as a container for future value, like if you order any food from any site to deleiver it to your place that order record will be the promise and the food will be the value of that promise.       
+    </p>
+
+    <pre class="pre">
+
+       let promiseToCleanTheRoom = new Promise(function(resolve, reject)
+       {
+        let isClean = true;
+        if(isClean)
+        {
+            resolve(`clean.`);
+        }
+        else
+        {
+            reject(`not clean.`);
+        }
+       });
+       promiseToCleanTheRoom.then(function(fromResolve){console.log(`The room is ${fromResolve}`)}).catch(function(fromReject){console.log(`The room is ${fromReject}`)}); 
+
+    </pre>
+    <pre class="pre">
+
+        const datas = [{name:"AB", occupation:"SDE"}, {name:"AC", occupation:"SDE1"}, {name:"AD", occupation:"SDE2"}];
+
+        function getDatas()
+        {
+            setTimeout(()=>
+            {   
+                let output = "";
+                datas.forEach((data, index)=>{output+= `<li.>${data.name}</li.>`});
+                document.body.innerHTML = output;
+            },1000)
+        }
+        function createData(newData)
+        {
+            return new Promise((resolve, reject)=>
+            {
+                
+                setTimeout(()=>
+                {
+                    datas.push(newData);
+                    let isPromise = true;
+                    if(isPromise)
+                    {
+                        resolve();
+                    }
+                    else
+                    {
+                        reject(`Something went wrong.`);
+                    }
+                }, 2000)
+            })
+        }
+        createData({name:"AF", occupation:"SDE"}).then(getDatas).catch(err=>console.log(err));
+    </pre>
 </ol>   
 
 </body>
