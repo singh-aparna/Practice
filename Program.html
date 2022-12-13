@@ -123,6 +123,23 @@
             console.log("${string} ${msg}");                                                
         </pre>
         
+        <li>Write a program for Async & Await example.</li>
+
+        <pre>
+
+            async function myDisplay()
+            {
+                let myPromise = new Promise((resolve)=>
+                {
+                    setTimeout(()=>
+                    {
+                        resolve(`Hello..!!`);
+                    },3000)
+                })
+                document.getElementById("demo").innerHTML = await myPromise; 
+            }
+            myDisplay();
+        </pre>
     </ol>
 </body>
 </html>
